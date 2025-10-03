@@ -1,0 +1,170 @@
+/* Reset nhẹ */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #0f172a;
+  background: #fff;
+  margin: 0;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Header */
+#tg-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+#tg-header .tg-middlecontainer {
+  padding: 12px 0;
+}
+#tg-header .tg-logo img {
+  height: 42px;
+}
+#tg-nav ul {
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#tg-nav ul li a {
+  font-weight: 600;
+  color: #0c2340;
+  position: relative;
+}
+#tg-nav ul li a:hover {
+  color: #32c24d;
+}
+#tg-nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #32c24d;
+  transition: 0.2s;
+}
+#tg-nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hero (parallax section) */
+.tg-parallax {
+  background: linear-gradient(90deg, #f4fff7, #fff);
+  padding: 60px 0;
+  text-align: center;
+}
+.tg-calltoaction h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #0b2b18;
+  margin-bottom: 8px;
+}
+.tg-calltoaction h3 {
+  color: #38564a;
+  font-weight: 400;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Section title */
+.tg-sectionhead h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+.tg-sectionhead .tg-btn {
+  background: #32c24d;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.tg-sectionhead .tg-btn:hover {
+  background: #22a63b;
+}
+
+/* Product card */
+.tg-postbook {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s;
+  background: #fff;
+}
+.tg-postbook:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.tg-postbookcontent {
+  padding: 10px 12px;
+}
+.tg-postbookcontent h3 a {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0c2340;
+}
+.tg-bookprice ins {
+  font-weight: 700;
+  color: #0e3f28;
+}
+
+/* Best seller */
+.tg-featureditmcontent {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+}
+.tg-themetagbox span {
+  background: #32c24d;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Services (footer top icons) */
+.tg-clientservices {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+}
+.tg-clientservices li {
+  flex: 1;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  transition: transform 0.2s;
+}
+.tg-clientservices li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.tg-clientservices h3 {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Footer */
+#tg-footer {
+  background: #061624;
+  color: #c8d1e6;
+  font-size: 14px;
+}
+#tg-footer a {
+  color: #dbe4ff;
+}
+#tg-footer .tg-footerbar {
+  border-top: 1px solid rgba(255,255,255,.1);
+  text-align: center;
+  padding: 12px 0;
+  font-size: 13px;
+  color: #a8b3cf;
+}

@@ -1,0 +1,86 @@
+/* --------- PALETTE MỚI --------- */
+:root{
+  --rk-primary: #18346D;   /* Xanh navy chủ đạo */
+  --rk-primary-600: #1d3f86;  /* hover (sáng hơn chút) */
+  --rk-text: #ffffff;
+  --rk-muted: #cfe0ff;
+}
+
+/* --------- HEADER / NAV STRIP --------- */
+/* Dải xanh lá hiện tại dưới logo */
+.tg-navigationarea,
+#tg-nav,
+#tg-nav .tg-navigation { background: var(--rk-primary) !important; }
+
+/* Link menu */
+#tg-nav .tg-navigation > ul > li > a {
+  color: var(--rk-text) !important;
+}
+#tg-nav .tg-navigation > ul > li > a:hover,
+#tg-nav .tg-navigation > ul > li:hover > a {
+  color: var(--rk-muted) !important;
+}
+
+/* Nút menu mobile */
+.navbar-toggle .icon-bar { background: var(--rk-text) !important; }
+
+/* --------- NÚT / BADGE / LINK NHẤN --------- */
+.tg-btn,
+.btn,
+.button,
+.tg-btnthemedropdown {
+  background: var(--rk-primary) !important;
+  border-color: var(--rk-primary) !important;
+  color: #fff !important;
+}
+.tg-btn:hover,
+.btn:hover,
+.button:hover,
+.tg-btnthemedropdown:hover {
+  background: var(--rk-primary-600) !important;
+  border-color: var(--rk-primary-600) !important;
+}
+
+/* Badge số lượng giỏ hàng, nhãn “Bán chạy”, … */
+.tg-themebadge,
+.tg-themetag,
+.tg-themetagbox span {
+  background: var(--rk-primary) !important;
+  color: #fff !important;
+}
+
+/* --------- ICON GIỎ HÀNG & LINK NHỎ --------- */
+.icon-cart, .tg-wishlistandcart a, a { color: var(--rk-primary) ; }
+a:hover { color: var(--rk-primary-600); }
+
+/* --------- CALL TO ACTION / HERO (nếu có nút) --------- */
+.tg-calltoaction .tg-btn { background: var(--rk-primary) !important; }
+
+/* --------- DOTS / SLIDER (owl) --------- */
+.owl-theme .owl-dots .owl-dot span { background: #8497c0; }
+.owl-theme .owl-dots .owl-dot.active span { background: var(--rk-primary); }
+
+/* --------- FOOTER BACK-TO-TOP --------- */
+#tg-btnbacktotop { background: var(--rk-primary) !important; color: #fff; }
+#tg-btnbacktotop:hover { background: var(--rk-primary-600) !important; }
+
+/* --------- VIỀN/FOCUS (tùy chọn) --------- */
+*:focus { outline-color: var(--rk-primary); }
+/* Đổi toàn bộ màu giá sang #18346D */
+.tg-postbook .tg-postbookcontent .tg-bookprice ins,
+.tg-featureditmcontent .tg-bookprice ins,
+.tg-bookprice ins,
+span.tg-bookprice ins {
+  color: #18346D !important;
+  text-decoration: none !important;
+}
+
+/* Nếu có link nằm trong ins (phòng xa) */
+.tg-bookprice ins a { 
+  color: #18346D !important; 
+}
+
+/* Giá gạch (nếu có) cho dịu mắt */
+.tg-bookprice del { 
+  color: #98A2B3 !important; 
+}
