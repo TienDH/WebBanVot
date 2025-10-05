@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "brand")
 public class Author {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

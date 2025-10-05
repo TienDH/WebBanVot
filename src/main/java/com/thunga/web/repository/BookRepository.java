@@ -13,21 +13,56 @@ import com.thunga.web.entity.Category;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
-	@Query(value="SELECT * FROM book ORDER BY number_sold DESC LIMIT 1", nativeQuery = true)
-	Book findBestSoldBook();
-	
-	List<Book> findByTitle(String title);
-	
-	@Query(value = "SELECT * FROM book WHERE title COLLATE utf8mb4_unicode_ci LIKE ?1", nativeQuery = true)
-	List<Book> findBySimilarTitle(String title, Pageable pageable);
-	
-	List<Book> findByAuthor(Author author);
-	
-	@Query(value = "SELECT * FROM book LEFT JOIN author ON author_id = author.id\r\n"
-				 + "WHERE author.name COLLATE utf8mb4_unicode_ci LIKE ?1", nativeQuery = true)
-	List<Book> findBySimilarAuthor(String authorName, Pageable pageable);
-	
-	List<Book> findByCategory(Category category, Pageable pageable);
-	
-}
 
+    // --- BEST SELLER (native, trỏ tới bảng product) ---
+    @Query(value = """
+        SELECT p.* 
+        FROM product p 
+        ORDER BY p.number_sold DESC 
+        LIMIT 1
+    """, nativeQuery = true)
+    Book findBestSoldBook();
+
+    // --- EXACT TITLE (derived query dùng JPQL theo field entity) ---
+    List<Book> findByTitle(String title);
+
+    // --- LIKE TITLE + COLLATION (native để dùng COLLATE) ---
+    @Query(value = """
+        SELECT p.* 
+        FROM product p 
+        WHERE p.title COLLATE utf8mb4_unicode_ci LIKE ?1
+    """, nativeQuery = true)
+    List<Book> findBySimilarTitle(String title, Pageable pageable);
+
+    // --- BY AUTHOR (derived query) ---
+    List<Book> findByAuthor(Author author);
+
+    // --- LIKE AUTHOR NAME + COLLATION (native để JOIN theo bảng author) ---
+    @Query(value = """
+        SELECT p.*
+        FROM product p
+        LEFT JOIN author a ON p.author_id = a.id
+        WHERE a.name COLLATE utf8mb4_unicode_ci LIKE ?1
+    """, nativeQuery = true)
+    List<Book> findBySimilarAuthor(String authorName, Pageable pageable);
+
+
+    List<Book> findByCategory(Category category, Pageable pageable);
+
+
+    @Query(value = """
+        SELECT p.* FROM product p
+        ORDER BY p.created_at DESC
+        LIMIT ?1
+    """, nativeQuery = true)
+    List<Book> findNewest(int limit);
+
+    // Lấy N sản phẩm có số lượng tồn kho > 0
+    @Query(value = """
+        SELECT p.* FROM product p
+        WHERE p.number_in_stock > 0
+        ORDER BY p.created_at DESC
+        LIMIT ?1
+    """, nativeQuery = true)
+    List<Book> findInStockNewest(int limit);
+}
